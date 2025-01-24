@@ -81,10 +81,8 @@ const VetClinicGame: React.FC = () => {
   ]);
 
   const loveNotes = [
-    "¡Eres la veterinaria más dulce y dedicada que conozco! 💕",
-    "Tu amor por los animales me enamora cada día más 🐱",
-    "Dandadan no tiene nada contra tu increíble forma de ser 🌟",
-    "Ver Primal juntos es genial, pero verte trabajar es aún mejor 💖",
+    "¡Eres la veterinaria más dulce y dedicada que conozco!",
+    "Tu amor por los animales me enamora cada día más 😻",
     "Bluey tendría la mejor doctora del mundo contigo 🩺",
     "Eres mi Evangeline, mi luz en cada momento 🌟",
   ];
