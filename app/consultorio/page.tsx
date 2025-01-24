@@ -12,8 +12,6 @@ import {
 } from "lucide-react";
 import ExplorationGame from "./components/ExplorationGame";
 import { moodStates } from "./constants/moodStates";
-import { MoodMessage } from "./components/MoodMessage";
-import { MoodSelector } from "./components/MoodSelector";
 import { MoodLevel } from "./types";
 
 interface Achievement {

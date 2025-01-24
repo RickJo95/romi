@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Link from "next/link";
 
 export default function NextScene() {
   return (
@@ -18,6 +19,8 @@ export default function NextScene() {
       >
         Continuar
       </motion.button>
+      <Link href="/">Volver al inicio</Link>
+      <Link href="/consultorio">Ir al consultorio</Link>
     </div>
   );
 }
