@@ -242,28 +242,28 @@ const VetClinicGame: React.FC = () => {
       className={`min-h-screen bg-gradient-to-b ${moodStates[currentMood].background} transition-colors duration-500 p-4`}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white/90 rounded-lg shadow-xl p-5 mb-4">
-          <p className="text-center mb-4 text-gray-700">
+        <div className="bg-white/90 dark:bg-slate-900 dark:text-gray-200 rounded-lg shadow-xl p-5 mb-4">
+          <p className="text-center mb-4 text-gray-700 dark:text-gray-300">
             ¿Cómo te sientes hoy, mi corazón?
           </p>
           <div className="flex justify-center gap-1">
             <button
               onClick={() => handleMoodChange("sad")}
-              className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 transition"
+              className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-950 transition"
             >
               <span className="text-2xl">😔</span>
               <span className="text-sm">Triste</span>
             </button>
             <button
               onClick={() => handleMoodChange("neutral")}
-              className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 transition"
+              className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-950 transition"
             >
               <span className="text-2xl">😊</span>
               <span className="text-sm">Normal</span>
             </button>
             <button
               onClick={() => handleMoodChange("happy")}
-              className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 transition"
+              className="flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-950 transition"
             >
               <span className="text-2xl">🥰</span>
               <span className="text-sm">Feliz</span>
@@ -276,9 +276,9 @@ const VetClinicGame: React.FC = () => {
           )}
         </div>
 
-        <div className="bg-white/90 rounded-lg shadow-xl p-6">
+        <div className="bg-white/90 dark:bg-slate-900 dark:text-gray-200 rounded-lg shadow-xl p-6">
           <header className="text-center mb-6">
-            <h1 className="text-2xl font-bold text-purple-800 mb-2">
+            <h1 className="text-2xl font-bold text-purple-800 dark:text-indigo-300 mb-2">
               Clínica Veterinaria de Dra. Romi
             </h1>
             <div className="flex justify-center items-center gap-2">
@@ -303,7 +303,7 @@ const VetClinicGame: React.FC = () => {
           </header>
 
           {showLoveNote && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50  dark:bg-slate-800 dark:text-gray-200 z-50">
               <div className="bg-white p-6 rounded-lg shadow-xl transform animate-bounce">
                 <p className="text-xl text-pink-600 font-semibold">
                   {loveNotes[Math.floor(Math.random() * loveNotes.length)]}
@@ -313,7 +313,7 @@ const VetClinicGame: React.FC = () => {
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white p-4 rounded-lg shadow">
+            <div className="bg-white dark:bg-slate-800 dark:text-gray-200 p-4 rounded-lg shadow">
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <Star className="text-yellow-500" />
                 {rooms[activeRoom].title}
@@ -324,19 +324,19 @@ const VetClinicGame: React.FC = () => {
                   {rooms.waiting.patients.map((patient, idx) => (
                     <div
                       key={idx}
-                      className="p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors cursor-pointer flex items-center gap-3"
+                      className="p-3 bg-blue-50 rounded-lg hover:bg-blue-100  dark:bg-indigo-950 dark:hover:bg-indigo-900 dark:text-gray-200 transition-colors cursor-pointer flex items-center gap-3"
                       onClick={() => handlePatientClick(patient)}
                     >
                       {patient.species === "Gato" ? (
-                        <Cat className="text-gray-600" />
+                        <Cat className="text-gray-600 dark:text-gray-400" />
                       ) : (
-                        <Dog className="text-gray-600" />
+                        <Dog className="text-gray-600 dark:text-gray-400" />
                       )}
                       <div className="flex-1">
                         <p className="font-medium">
                           {patient.name} - {patient.species}
                         </p>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
                           Motivo: {patient.issue}
                         </p>
                       </div>
@@ -350,7 +350,7 @@ const VetClinicGame: React.FC = () => {
 
               {activeRoom === "exam" && activePatient && (
                 <div className="space-y-4">
-                  <div className="p-4 bg-purple-50 rounded-lg">
+                  <div className="p-4 bg-purple-50 rounded-lg dark:bg-purple-950 dark:text-gray-200">
                     <h3 className="font-medium mb-4 flex items-center justify-between">
                       <span className="flex items-center gap-2">
                         <Sparkles className="text-purple-500" />
@@ -359,7 +359,7 @@ const VetClinicGame: React.FC = () => {
                       <Timer className="text-blue-500" />
                     </h3>
 
-                    <div className="mb-4 bg-gray-200 rounded-full h-2">
+                    <div className="mb-4 bg-gray-200 dark:bg-gray-800 dark:text-gray-200 rounded-full h-2">
                       <div
                         className="bg-pink-500 h-2 rounded-full transition-all duration-500"
                         style={{ width: `${treatmentProgress}%` }}
@@ -370,7 +370,7 @@ const VetClinicGame: React.FC = () => {
                       {treatments.map((treatment, idx) => (
                         <button
                           key={idx}
-                          className="flex items-center gap-2 w-full p-2 bg-white rounded-lg hover:bg-pink-50 transition-colors"
+                          className="flex items-center gap-2 w-full p-2 bg-white rounded-lg hover:bg-pink-50 dark:bg-slate-900 dark:hover:bg-pink-950 transition-colors"
                           onClick={() => applyTreatment(treatment)}
                         >
                           {treatment.icon}
@@ -378,7 +378,7 @@ const VetClinicGame: React.FC = () => {
                         </button>
                       ))}
                       <button
-                        className="flex items-center gap-2 w-full p-2 mt-4 bg-pink-100 rounded-lg hover:bg-pink-200 transition-colors"
+                        className="flex items-center gap-2 w-full p-2 mt-4 bg-pink-100 rounded-lg hover:bg-pink-200 dark:bg-pink-900 dark:hover:bg-pink-800 transition-colors"
                         onClick={() => setShowExplorationGame(true)}
                       >
                         <Sparkles className="text-pink-500" />
@@ -397,15 +397,15 @@ const VetClinicGame: React.FC = () => {
               )}
             </div>
 
-            <div className="bg-white p-4 rounded-lg shadow">
+            <div className="bg-white dark:bg-slate-800 dark:text-gray-200 p-4 rounded-lg shadow">
               <h2 className="text-xl font-semibold mb-4">Actualizaciones</h2>
               <div className="space-y-2">
                 {messages.map((msg, idx) => (
                   <div
                     key={idx}
-                    className="p-2 bg-pink-50 rounded-lg animate-fade-in flex items-center gap-2"
+                    className="p-2 bg-pink-50 dark:bg-pink-950 dark:text-gray-200 rounded-lg animate-fade-in flex items-center gap-2"
                   >
-                    <Sparkles className="text-pink-400" size={16} />
+                    <Sparkles className="text-pink-400 dark:text-pink-600" size={16} />
                     {msg}
                   </div>
                 ))}

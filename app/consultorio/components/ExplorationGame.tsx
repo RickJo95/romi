@@ -123,6 +123,7 @@ const CatSilhouette = () => (
            C75 25, 75 32.5, 70 40
            C65 47.5, 55 50, 45 50"
       fill="#D1D5DB"
+      className="fill-slate-900"
     />
 
     {/* Cuerpo sentado */}
@@ -138,6 +139,7 @@ const CatSilhouette = () => (
            C70 65, 65 70, 55 70
            L45 50"
       fill="#D1D5DB"
+      className="fill-slate-900"
     />
 
     {/* Pata delantera */}
@@ -149,11 +151,12 @@ const CatSilhouette = () => (
            L35 60
            Z"
       fill="#D1D5DB"
+      className="fill-slate-900"
     />
 
     {/* Orejas */}
-    <path d="M25 10 L18.75 1.25 L28.75 7.5 Z" fill="#D1D5DB" />
-    <path d="M65 10 L71.25 1.25 L61.25 7.5 Z" fill="#D1D5DB" />
+    <path d="M25 10 L18.75 1.25 L28.75 7.5 Z" fill="#D1D5DB" className="fill-slate-800" />
+    <path d="M65 10 L71.25 1.25 L61.25 7.5 Z" fill="#D1D5DB" className="fill-slate-800" />
 
     {/* Cola */}
     <path
@@ -163,8 +166,9 @@ const CatSilhouette = () => (
            Q83.75 32.5, 81.25 30"
       fill="none"
       stroke="#D1D5DB"
-      stroke-width="4"
-      stroke-linecap="round"
+      className="stroke-slate-900"
+      strokeWidth="4"
+      strokeLinecap="round"
     />
 
     {/* Ojos */}
@@ -175,7 +179,7 @@ const CatSilhouette = () => (
     <path d="M43.75 23.75 L46.25 23.75 L45 25 Z" fill="#9CA3AF" />
 
     {/* Bigotes */}
-    <g stroke="#9CA3AF" stroke-width="0.5">
+    <g stroke="#9CA3AF" strokeWidth="0.5">
       <line x1="35" y1="23.75" x2="25" y2="22.5" />
       <line x1="35" y1="24.5" x2="25" y2="24.5" />
       <line x1="35" y1="25.25" x2="25" y2="26.5" />
@@ -261,8 +265,8 @@ const DogSilhouette = () => (
            T80 45"
       fill="none"
       stroke="#D1D5DB"
-      stroke-width="5"
-      stroke-linecap="round"
+      strokeWidth="5"
+      strokeLinecap="round"
     />
 
     {/* Ojos */}
@@ -329,7 +333,7 @@ const ExplorationGame = ({ onComplete, patient }: ExplorationGameProps) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-full">
+      <div className="bg-white dark:bg-slate-900 dark:text-gray-200 p-8 rounded-lg shadow-xl max-w-2xl w-full">
         <h3 className="text-2xl font-bold mb-6 text-center">
           Revisión Especial para {patient.name}
         </h3>
@@ -337,14 +341,14 @@ const ExplorationGame = ({ onComplete, patient }: ExplorationGameProps) => {
         <div className="text-center mb-4">
           <p className="text-xl font-semibold">Puntos de amor: {score}</p>
           <button
-            className="text-sm text-pink-600 underline mt-2"
+            className="text-sm text-pink-600 dark:text-pink-400 underline mt-2"
             onClick={() => setShowHints(!showHints)}
           >
             {showHints ? "Ocultar pistas" : "Mostrar pistas"}
           </button>
         </div>
 
-        <div className="relative w-full h-96 bg-blue-50 rounded-lg overflow-hidden game-area">
+        <div className="relative w-full h-96 bg-blue-50 dark:bg-blue-950 rounded-lg overflow-hidden game-area">
           {patient.species === "Gato" ? <CatSilhouette /> : <DogSilhouette />}
 
           {hotspots.map((spot) => (
@@ -363,12 +367,12 @@ const ExplorationGame = ({ onComplete, patient }: ExplorationGameProps) => {
                 className={`
                 w-full h-full rounded-full 
                 ${activeSpot === spot.id ? "animate-ping" : ""}
-                ${spot.found ? "bg-sky-500" : "bg-yellow-300"}
+                ${spot.found ? "bg-sky-400 dark:bg-sky-600" : "bg-yellow-300 dark:bg-yellow-700"}
               `}
               >
                 {spot.found && (
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 whitespace-nowrap z-50">
-                    <div className="bg-white px-3 py-1 rounded-full shadow-lg text-sm">
+                    <div className="bg-white dark:bg-slate-800 px-3 py-1 rounded-full shadow-lg text-sm">
                       {spot.message}
                     </div>
                   </div>
@@ -391,13 +395,13 @@ const ExplorationGame = ({ onComplete, patient }: ExplorationGameProps) => {
         </div>
 
         {showHints && (
-          <div className="mt-4 p-4 bg-pink-50 rounded-lg">
+          <div className="mt-4 p-4 bg-pink-50 dark:bg-pink-950 rounded-lg">
             <p className="font-medium mb-2">Pistas:</p>
             <ul className="space-y-1">
               {hotspots
                 .filter((spot) => !spot.found)
                 .map((spot) => (
-                  <li key={spot.id} className="text-sm text-gray-600">
+                  <li key={spot.id} className="text-sm text-gray-600 dark:text-gray-400">
                     • {spot.hint}
                   </li>
                 ))}
