@@ -13,14 +13,16 @@ export default function NextScene() {
         Lo que viene es aún más emocionante. Prepárate para lo inesperado.
       </p>
       <motion.button
-        className="bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-pink-700 focus:outline-none"
+        className="bg-pink-500 text-white px-4 py-1 rounded-lg text-lg font-semibold hover:bg-pink-700 focus:outline-none"
         onClick={() => alert("Siguiente capítulo en desarrollo... ¡Quédate atenta!")}
         whileHover={{ scale: 1.1 }}
       >
         Continuar
       </motion.button>
-      <Link href="/">Volver al inicio</Link>
-      <Link href="/consultorio">Ir al consultorio</Link>
+      <div className="mt-5 flex gap-6">
+      <Link className="dark:text-gray-300 px-3 py-1 rounded-md bg-emerald-700 text-white hover:bg-emerald-600 shadow hover:shadow-lg font-semibold" href="/">Volver al inicio</Link>
+      <Link className="dark:text-gray-300 px-3 py-1 rounded-md bg-indigo-700 text-white hover:bg-indigo-600 shadow hover:shadow-lg font-semibold" href="/consultorio">Ir al consultorio</Link>
+      </div>
     </div>
   );
 }
