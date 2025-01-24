@@ -9,10 +9,12 @@ import {
   Stethoscope,
   Timer,
   Trophy,
+  ChevronLeft,
 } from "lucide-react";
 import ExplorationGame from "./components/ExplorationGame";
 import { moodStates } from "./constants/moodStates";
 import { MoodLevel } from "./types";
+import Link from "next/link";
 
 interface Achievement {
   id: string;
@@ -241,6 +243,7 @@ const VetClinicGame: React.FC = () => {
     <div
       className={`min-h-screen bg-gradient-to-b ${moodStates[currentMood].background} transition-colors duration-500 p-4`}
     >
+      <Link href="/" className="dark:text-gray-300 text-sm flex flex-row items-center hover:underline underline-offset-4"><ChevronLeft size={18}/> Regresar al Inicio</Link>
       <div className="max-w-4xl mx-auto">
         <div className="bg-white/90 dark:bg-slate-900 dark:text-gray-200 rounded-lg shadow-xl p-5 mb-4">
           <p className="text-center mb-4 text-gray-700 dark:text-gray-300">
