@@ -68,7 +68,7 @@ export default function CinematicScene() {
             onClick={switchOpacity}
             initial={{ filter: "blur(20px)" }}
             animate={{ filter: "blur(0px)" }}
-            transition={{ duration: 5 }}
+            transition={{ duration: 4 }}
           >
             <p>
               Asi como Ray veía en su Evangeline una luz que lo guiaba en la
