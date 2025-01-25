@@ -88,7 +88,7 @@ export default function CinematicScene() {
             </p>
             <p>
               como el hechizo de la bruja en{" "}
-              <i> &ldquo;La bella y la bestia&rdquo;.</i>
+              <i> &ldquo;La Bella y la Bestia&rdquo;.</i>
             </p>
             <p>
               Por eso, mi amor, cuando veas una noche tan hermosa como esta,
